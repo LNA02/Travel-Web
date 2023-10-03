@@ -1,0 +1,26 @@
+{% extends "pages/base.html" %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+    {% for post in Posts %}
+        <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+            <figure>
+                <a href="/blog/{{post.id}}"><img src="{{post.image}}" alt="Image" class="img-responsive" style="height: 220px; width: 370px;"></a>
+            </figure>
+            <h2 class="fh5co-article-title">{{post.title}}</h2>
+            <span class="fh5co-meta fh5co-date">{{post.date|date:"d-m-Y"}}</span>
+        </article>
+    {% endfor %}
+
+<!-- search -->
+    {% if posts.count > 0 %}
+        {% for post in posts %}
+            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                <figure>
+                    <a href="/blog/{{post.id}}"><img src="{{post.image}}" alt="Image" class="img-responsive" style="height: 220px; width: 370px;"></a>
+                </figure>
+                <h2 class="fh5co-article-title">{{post.title}}</h2>
+                <span class="fh5co-meta fh5co-date">{{post.date|date:"d-m-Y"}}</span>
+            </article>
+        {% endfor %}
+    {% endif %}    
+{% endblock %}
